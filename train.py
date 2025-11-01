@@ -233,7 +233,7 @@ if __name__ == "__main__":
         n_epochs=10,            # was 12; reduce to avoid hitting KL too fast
         learning_rate=linear_schedule(3e-4, 3e-6),
         clip_range=linear_schedule(0.2, 0.05),
-        ent_coef=0.01,
+        ent_coef=0.05,
         verbose=1,
         policy_kwargs=policy_kwargs,   # ⬅️ add this
         tensorboard_log=my_config["run_id"],
