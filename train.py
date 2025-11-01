@@ -62,7 +62,7 @@ policy_kwargs = dict(
     features_extractor_class=CustomCNN, # ★ 告訴 PPO 使用我們的 CNN
     features_extractor_kwargs=dict(features_dim=512), # ★ CNN 輸出的維度
     
-    net_arch=[256, 256, 256],  # CNN(512) -> 256 -> 256 -> 256
+    net_arch=[256, 256],  # CNN(512) -> 256 -> 256 -> 256
     activation_fn=nn.ReLU,
 )
 # Set hyper params (configurations) for training
