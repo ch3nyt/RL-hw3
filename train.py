@@ -82,6 +82,9 @@ def make_env():
     env = ResetWithBucket(env, STATE_BUCKET) 
     # env = Log2Wrapper(env) # ★ Log2Wrapper 必須在 ResetWithBucket 之後
     return env
+    
+def make_env_train():
+        return make_env()
 
 def make_env_eval():
     """建立乾淨的評估環境"""
@@ -207,7 +210,8 @@ if __name__ == "__main__":
     from stable_baselines3.common.vec_env import VecNormalize, sync_envs_normalization  # NEW
 
     # --- build raw envs as before ---
-    train_env = DummyVecEnv([make_env for _ in range(my_config["num_train_envs"])])
+    # 3. 將 DummyVecEnv 改為 SubprocVecEnv
+    train_env = SubprocVecEnv([make_env_train for _ in range(my_config["num_train_envs"])])    
     eval_env  = DummyVecEnv([make_env_eval])
 
     # 訓練環境：正規化 Reward
