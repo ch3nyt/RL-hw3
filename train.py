@@ -71,10 +71,10 @@ my_config = {
     "algorithm": PPO,
     "policy_network": "CnnPolicy",
     "save_path": "models/sample_model",
-    "num_train_envs": 12,
+    "num_train_envs": 10,
     "epoch_num": 200,
     "timesteps_per_epoch": 81920*5,
-    "eval_episode_num": 25,
+    "eval_episode_num": 20,
 }
 
 def make_env():
@@ -231,7 +231,7 @@ if __name__ == "__main__":
         n_steps=2048*5,           # rollout = 2048 * 8 = 16384
         batch_size=8192,        # 2 minibatches
         n_epochs=12,            # was 12; reduce to avoid hitting KL too fast
-        learning_rate=linear_schedule(1e-3, 3e-6),
+        learning_rate=linear_schedule(3e-4, 3e-6),
         clip_range=linear_schedule(0.2, 0.05),
         ent_coef=0.05,
         verbose=1,
