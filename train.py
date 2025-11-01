@@ -71,7 +71,7 @@ my_config = {
     "algorithm": PPO,
     "policy_network": "CnnPolicy",
     "save_path": "models/sample_model",
-    "num_train_envs": 64,
+    "num_train_envs": 24,
     "epoch_num": 200,
     "timesteps_per_epoch": 81920*5,
     "eval_episode_num": 30,
